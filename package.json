@@ -1,0 +1,37 @@
+{
+  "name": "gql-to-x",
+  "version": "0.0.1",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --silent",
+    "start": "node dist/main",
+    "start:dev": "ts-node src/main",
+    "build": "gulp",
+    "prepare": "husky install",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "camel-case": "^4.1.2",
+    "class-validator": "^0.13.2",
+    "consola": "^2.15.3",
+    "glob": "^8.0.3",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/jest": "^28.1.6",
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^18.0.5",
+    "@types/validator": "^13.7.4",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "3.3.0",
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "husky": "^8.0.1",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}

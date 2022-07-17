@@ -1,0 +1,5 @@
+graphql_folder: graphql
+output_folder: graphql_converted
+output_language: go
+graphql_extension: graphql
+prefer_const: false

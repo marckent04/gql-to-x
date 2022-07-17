@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "sourceMap": true
+  },
+  "exclude": ["coverage", "tests", "node_modules"],
+  "include": ["src"]
+}

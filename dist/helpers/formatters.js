@@ -22,28 +22,27 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.formatGoFileContent = exports.formatJsOrTsFileContent = exports.formatDartFileContent = exports.formatVariableName = void 0;
-var path = __importStar(require("path"));
-var camel_case_1 = require("camel-case");
-var constants_1 = require("../constants");
-var formatVariableName = function (gqlFilePath, toUpper) {
-    if (toUpper === void 0) { toUpper = false; }
-    var method = toUpper ? "toUpperCase" : "toLowerCase";
-    var filename = (0, camel_case_1.camelCase)(path.parse(gqlFilePath).name);
+const path = __importStar(require("path"));
+const camel_case_1 = require("camel-case");
+const constants_1 = require("../constants");
+const formatVariableName = (gqlFilePath, toUpper = false) => {
+    const method = toUpper ? "toUpperCase" : "toLowerCase";
+    let filename = (0, camel_case_1.camelCase)(path.parse(gqlFilePath).name);
     filename = filename[0][method]() + filename.substring(1);
     return filename + "Gql";
 };
 exports.formatVariableName = formatVariableName;
-var formatDartFileContent = function (gqlFilePath, gql) {
-    return "final String ".concat((0, exports.formatVariableName)(gqlFilePath), " = r\"\"\"").concat(gql, "\"\"\";");
+const formatDartFileContent = (gqlFilePath, gql) => {
+    return `final String ${(0, exports.formatVariableName)(gqlFilePath)} = r"""${gql}""";`;
 };
 exports.formatDartFileContent = formatDartFileContent;
-var formatJsOrTsFileContent = function (gqlFilePath, gql) {
-    return "const ".concat((0, exports.formatVariableName)(gqlFilePath), " = `").concat(gql, "`;");
+const formatJsOrTsFileContent = (gqlFilePath, gql) => {
+    return `const ${(0, exports.formatVariableName)(gqlFilePath)} = \`${gql}\`;`;
 };
 exports.formatJsOrTsFileContent = formatJsOrTsFileContent;
-var formatGoFileContent = function (gqlFilePath, gql) {
-    return "package ".concat(constants_1.GO_PACKAGE_NAME, "\n\nconst ").concat((0, exports.formatVariableName)(gqlFilePath, true), " = `").concat(gql, "`");
+const formatGoFileContent = (gqlFilePath, gql) => {
+    return `package ${constants_1.GO_PACKAGE_NAME}\n\nconst ${(0, exports.formatVariableName)(gqlFilePath, true)} = \`${gql}\``;
 };
 exports.formatGoFileContent = formatGoFileContent;

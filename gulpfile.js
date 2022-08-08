@@ -2,15 +2,9 @@ const gulp = require("gulp");
 const ts = require("gulp-typescript");
 
 gulp.task("default", () => {
-  return gulp
-    .src("src/**/*.ts")
-    .pipe(
-      ts({
-        noImplicitAny: true,
-        experimentalDecorators: true,
-        esModuleInterop: true,
-        removeComments: true,
-      }),
-    )
-    .pipe(gulp.dest("dist"));
+  const tsProject = ts.createProject("tsconfig.json");
+
+  const tsResult = gulp.src("src/**/*.ts").pipe(tsProject());
+
+  return tsResult.js.pipe(gulp.dest("dist"));
 });

@@ -1,10 +1,22 @@
 {
   "name": "gql-to-x",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "dist/main.js",
   "license": "MIT",
+  "author": {
+    "name": "Marc-Henry Nanguy",
+    "email": "marchenrynanguy1@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marckent04/gql-to-x.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marckent04/gql-to-x/issues"
+  },
+  "homepage": "https://github.com/marckent04/gql-to-x",
   "scripts": {
-    "test": "jest --silent",
+    "test": "jest --silent --onlyChanged",
     "start": "node dist/main",
     "start:dev": "ts-node src/main",
     "build": "gulp",
@@ -35,6 +47,6 @@
     "typescript": "^4.7.4"
   },
   "bin": {
-    "gqltox": "./dist/main.js"
+    "gqltox": "dist/main.js"
   }
 }

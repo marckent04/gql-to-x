@@ -1,13 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "moduleResolution": "Node",
-    "module": "commonjs",
-    "experimentalDecorators": true,
-    "outDir": "./dist",
-    "rootDir": ".",
+    "lib": ["es5", "es6"],
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "sourceMap": true
+    "target": "ES2019",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "stripInternal": true,
+    "pretty": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "downlevelIteration": true,
+    "outDir": "./dist",
+    "rootDir": "."
   },
   "exclude": ["coverage", "tests", "node_modules"],
   "include": ["src"]

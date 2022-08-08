@@ -22,29 +22,29 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.getFileContentAndConvertToGoodLanguage = exports.changeFileLocation = exports.changeFileExtension = exports.saveFile = void 0;
-var path = __importStar(require("path"));
-var fs = __importStar(require("fs"));
-var interfaces_1 = require("../interfaces");
-var formatters_1 = require("./formatters");
-var saveFile = function (filePath, content) {
-    var parsedPath = path.parse(filePath);
+const path = __importStar(require("path"));
+const fs = __importStar(require("fs"));
+const interfaces_1 = require("../interfaces");
+const formatters_1 = require("./formatters");
+const saveFile = (filePath, content) => {
+    const parsedPath = path.parse(filePath);
     fs.mkdirSync(parsedPath.dir, { recursive: true });
     fs.writeFileSync(filePath, content, { encoding: "utf-8" });
 };
 exports.saveFile = saveFile;
-var changeFileExtension = function (filePath, outputExtension) {
-    return filePath.replace(path.extname(filePath), ".".concat(outputExtension));
+const changeFileExtension = (filePath, outputExtension) => {
+    return filePath.replace(path.extname(filePath), `.${outputExtension}`);
 };
 exports.changeFileExtension = changeFileExtension;
-var changeFileLocation = function (filePath, doc) {
+const changeFileLocation = (filePath, doc) => {
     return filePath.replace(doc.graphql_folder, doc.output_folder);
 };
 exports.changeFileLocation = changeFileLocation;
-var getFileContentAndConvertToGoodLanguage = function (gqlFilePath, targetLanguage) {
-    var fileContent = fs.readFileSync(gqlFilePath).toString("utf-8").trim();
-    var func;
+const getFileContentAndConvertToGoodLanguage = (gqlFilePath, targetLanguage) => {
+    const fileContent = fs.readFileSync(gqlFilePath).toString("utf-8").trim();
+    let func;
     switch (targetLanguage) {
         case interfaces_1.SupportedLanguages.DART:
             func = formatters_1.formatDartFileContent;

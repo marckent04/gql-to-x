@@ -46,9 +46,13 @@ async function main() {
 
     if (errors.length) throw new Error("Invalid config file");
 
-    const files = await myGlob(
-      join(doc.graphql_folder, "**", `*.${doc.graphql_extension}`),
-    );
+    const path = join(
+      doc.graphql_folder,
+      "**",
+      `*.${doc.graphql_extension}`,
+    ).replace(/\\/g, "/");
+
+    const files = await myGlob(path);
 
     files.forEach(convertFile(doc));
 
